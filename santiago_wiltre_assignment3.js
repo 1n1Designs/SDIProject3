@@ -3,6 +3,11 @@
 // Project 3
 // SDI Java Script Project 3
 
+// Global Variables
+var status ="yes";
+var roadConditions ="Good";
+var kindOFtrip = " If weather permit, we are going to a ski trip, ";
+var when = "The week of New Years 2013";
 
 //JSON Data
 var skiAndRidersInfo = {
@@ -23,16 +28,46 @@ var data = function(dataInfo){
 	};
 };
 
+// Method Procedure
+var TripStatus ={
+	status: function(status){
+	if ((status === "yes" || status === "Yes") && roadConditions === "Good") {
+		console.log (when + kindOFtrip);	
+	} else {
+		console.log ("Waiting for weather report");	
+	};
+
+	}
+};
+
 //Main Code 
 var skiersData= data(skiAndRidersInfo);
 
 console.log(skiAndRidersInfo.skiers.length)
+TripStatus.status(status);
 
 
 
 
 
-//working with the object example not for the project is more for reference. 
+
+
+
+
+
+
+// From Here below everything is for reference or testing. The final code
+// will not include anything below this line. =
+
+
+
+// Reference for syntax
+// array syntax || var arr =[];  
+// Function Syntax || var fun = function(){};
+// Object Syntax || var obj={};
+
+
+//object example for reference. 
   
 var cube ={
 	name: "My nice Cube",
@@ -51,6 +86,7 @@ var cube ={
 		
 
 };
+// Playing with the mutator and accesor. 
 console.log ("Total area is " + cube.area());
 console.log (cube.name);
 var key = "name";
