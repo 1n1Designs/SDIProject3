@@ -27,10 +27,18 @@ var data = function(dataInfo){
 		console.log(skier.name + " will use " + skier.equipment + " setup to level " + skier.level); 
 	};
 };
-
+// Method Function 
+var planners = {
+	plannersNames:function (plannerA,plannerB){
+	var plannerA = plannerA.skiers[0].name;
+	var plannerB = plannerB.skiers[1].name;
+	var names = plannerA + " and  " + plannerB +"."+ " Thanks for planning this trip";
+	return names;
+	}
+};
 // Method Procedure
 var TripStatus ={
-	status: function(status){
+	statusInput: function(status){
 	if ((status === "yes" || status === "Yes") && roadConditions === "Good") {
 		console.log (when + kindOFtrip);	
 	} else {
@@ -41,12 +49,11 @@ var TripStatus ={
 };
 
 //Main Code 
+TripStatus.statusInput(status);
 var skiersData= data(skiAndRidersInfo);
-
-console.log(skiAndRidersInfo.skiers.length)
-TripStatus.status(status);
-
-
+var plannersList = planners.plannersNames(skiAndRidersInfo,skiAndRidersInfo);
+console.log (plannersList);
+console.log(skiAndRidersInfo.skiers.length) //display as number 4
 
 
 
@@ -60,7 +67,13 @@ TripStatus.status(status);
 // will not include anything below this line. =
 
 
-
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log(" ");
+console.log("******************---------------****************** ");
 // Reference for syntax
 // array syntax || var arr =[];  
 // Function Syntax || var fun = function(){};
