@@ -4,15 +4,15 @@
 // SDI Java Script Project 3
 
 //JSON Data
-var skiAndRidersInfo = {
+var skiAndRiders = {
 	skiers: [
 		{"name": "Wiltre",   "equipment": "Skis",       "level": 3},
 		{"name": "Nathalie", "equipment": "Skis",       "level": 1},
 		{"name": "Jonathan", "equipment": "Snow Board", "level": 3},
-		{"name": "Jennifer", "equipment": "Snow Board", "level": 1}
+		{"name": "Jennifer", "equipment": "Snow Board", "level": 1},
+		{"name": "Ismael", "equipment": "Snow Board", "level": 3}
 	]
 };
-
 
 // Global Variables
 var status ="yes";
@@ -20,8 +20,9 @@ var roadConditions ="Good";
 var kindOFtrip = " If weather permit, we are going to a ski trip, ";
 var when = "The week of New Years 2013";
 var weatherTemperatures= [{"current":45, "good":33 }];
-var numberOfSkiers = skiAndRidersInfo.skiers.length;
+var numberOfSkiers = skiAndRiders.skiers.length;
 
+//Global Function
 
 
 // Method Procedure
@@ -49,7 +50,7 @@ var weatherCheck ={
 
 // Method Functions
 var tripDetails ={
-	we:skiAndRidersInfo.skiers.length,
+	we:skiAndRiders.skiers.length,
 	thanks:" of us want to said thanks for planning the trip",
 	organizers:function (plannerA,plannerB,tripHappened){
 		if(tripHappened == true){
@@ -63,7 +64,37 @@ var tripDetails ={
 	
 };
 
+// Method Accessor with for loop and while loop 
+
+var displaySkiersAndRiders ={
+	data:function(dataInfo){
+		var finalOutput = [];
+		for(var i=0; i<dataInfo.skiers.length; i++){
+			var skier = dataInfo.skiers[i];
+			var  dinfo =(skier.name + " will use " + skier.equipment + " setup to level " + skier.level);
+			finalOutput.push(dinfo);
+			var key = i;
+			var skierName=dataInfo.skiers.name
+			while (key < i+1){
+				var skierName=dataInfo.skiers[i].name;
+				console.log( skierName +" Confirmed assistance");
+				key++;
+			}
+			
+		};
+		
+		return finalOutput
+		
+	},
+	
+};
+
 
 //Main Code 
-var display = tripDetails.organizers(skiAndRidersInfo.skiers[0].name,skiAndRidersInfo.skiers[1].name,false);
-console.log(display);
+var displayC = displaySkiersAndRiders.data(skiAndRiders);
+console.log (displayC[1]);
+var displayA = tripDetails.organizers(skiAndRiders.skiers[0].name,skiAndRiders.skiers[1].name,false);
+console.log(displayA);
+
+
+
