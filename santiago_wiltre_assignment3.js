@@ -56,7 +56,8 @@ var tripDetails ={
 			var thanksMsg = plannerA + " and " + plannerB +". "+ "Yes " + "it is " + status + ". The " + this.we + this.thanks;
 			return thanksMsg
 		} else {
-			console.log(plannerA + " " + plannerB + " Announce that the trip was canceled do to bad weather");
+			var tripCancel = plannerA + " and " + plannerB + " Announce that the trip was canceled do to bad weather";
+			return tripCancel
 		};
 	}
 	
