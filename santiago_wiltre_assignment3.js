@@ -19,16 +19,16 @@ var status ="yes";
 var roadConditions ="Good";
 var kindOFtrip = " If weather permit, we are going to a ski trip, ";
 var when = "The week of New Years 2013";
-var weatherTemperatures= [{"current":45, "good":33 }];
+var weatherTemperatures= [22,33];
 var numberOfSkiers = skiAndRiders.skiers.length;
 
 //Global Function
 
 
 // Method Procedure
-var TripStatus ={
-	statusInput: function(status){
-		if ((status === "yes" || status === "Yes") && roadConditions === "Good") {
+var tripStatus ={
+	statusInput: function(statusInput){
+		if ((statusInput === "yes" || statusInput === "Yes") && roadConditions === "Good") {
 			console.log (when + kindOFtrip);	
 		} else {
 			console.log ("Waiting for weather report");	
@@ -91,10 +91,13 @@ var displaySkiersAndRiders ={
 
 
 //Main Code 
+var tripPlan= tripStatus.statusInput(status);
+console.log(tripPlan);
+var weather = weatherCheck.status(weatherTemperatures[0],weatherTemperatures[1]);
+console.log(weather);
+var displayA = tripDetails.organizers(skiAndRiders.skiers[0].name,skiAndRiders.skiers[1].name,weather);
+console.log(displayA);
 var displayC = displaySkiersAndRiders.data(skiAndRiders);
 console.log (displayC[1]);
-var displayA = tripDetails.organizers(skiAndRiders.skiers[0].name,skiAndRiders.skiers[1].name,false);
-console.log(displayA);
-
 
 
