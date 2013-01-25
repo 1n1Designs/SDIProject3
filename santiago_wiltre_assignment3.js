@@ -3,14 +3,6 @@
 // Project 3
 // SDI Java Script Project 3
 
-// Global Variables
-var status ="yes";
-var roadConditions ="Good";
-var kindOFtrip = " If weather permit, we are going to a ski trip, ";
-var when = "The week of New Years 2013";
-var weatherTemperatures= [{"current":45, "good":33 }];
-
-
 //JSON Data
 var skiAndRidersInfo = {
 	skiers: [
@@ -20,6 +12,16 @@ var skiAndRidersInfo = {
 		{"name": "Jennifer", "equipment": "Snow Board", "level": 1}
 	]
 };
+
+
+// Global Variables
+var status ="yes";
+var roadConditions ="Good";
+var kindOFtrip = " If weather permit, we are going to a ski trip, ";
+var when = "The week of New Years 2013";
+var weatherTemperatures= [{"current":45, "good":33 }];
+var numberOfSkiers = skiAndRidersInfo.skiers.length;
+
 
 
 // Method Procedure
@@ -45,17 +47,22 @@ var weatherCheck ={
 	}
 };
 
+// Method Functions
+var tripDetails ={
+	we:skiAndRidersInfo.skiers.length,
+	thanks:" of us want to said thanks for planning the trip",
+	organizers:function (plannerA,plannerB,tripHappened){
+		if(tripHappened == true){
+			var thanksMsg = plannerA + " and " + plannerB +". "+ "Yes " + "it is " + status + ". The " + this.we + this.thanks;
+			return thanksMsg
+		} else {
+			console.log(plannerA + " " + plannerB + " Announce that the trip was canceled do to bad weather");
+		};
+	}
+	
+};
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+//Main Code 
+var display = tripDetails.organizers(skiAndRidersInfo.skiers[0].name,skiAndRidersInfo.skiers[1].name,false);
+console.log(display);
